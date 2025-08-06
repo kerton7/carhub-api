@@ -10,7 +10,7 @@ data class Brand (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id:Long?,
+    var id:Long?=null,
 
     var brandName:String?=null,
 
