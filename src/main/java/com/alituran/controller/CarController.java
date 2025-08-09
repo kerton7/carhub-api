@@ -52,8 +52,11 @@ public class CarController {
         Pageable pageable = PageUtil.toPageable(request.getPageable());
         Page<Car> cars = carService.searchCars(request.getModel(), request.getBrand(),
                 request.getFuelType(),pageable);
-
         return ResponseEntity.ok(PageUtil.toRestPageableResponse(cars, carMapper.toDtoCars(cars.getContent())));
+    }
 
+    @PostMapping(path = "/savecar")
+    public ResponseEntity<DtoCar> saveCar(@RequestBody DtoCar dtoCar){
+        return ResponseEntity.ok(carService.saveCar(dtoCar));
     }
 }

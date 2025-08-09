@@ -12,4 +12,6 @@ public interface CarMapper {
     DtoCar toDtoCar(Car car);
 
     List<DtoCar> toDtoCars(List<Car> cars);
+
+    Car toCar(DtoCar dtoCar);
 }

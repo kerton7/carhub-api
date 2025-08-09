@@ -52,4 +52,12 @@ public class AuthService {
         return new AuthResponse(accessToken,refreshToken.getRefreshToken());
     }
 
+
+    protected User saveOAuthUser(String email,String username){
+        return authRepository.findByEmail(email).orElseGet(() -> {
+            User newUser = authRepository.save(User.builder().email(email).username(username).build());
+           return newUser;
+        });
+    }
+
 }
